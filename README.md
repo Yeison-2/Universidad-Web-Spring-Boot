@@ -1,75 +1,99 @@
 
-# Web-2026-i
+# 🎓 Sistema de Gestión Universitaria
 
-Proyecto Spring Boot (Java) para gestión universitaria y envío de correos.
+Una plataforma integral para la administración y gestión de universidades, diseñada con las tecnologías más modernas de desarrollo web.
 
-## Descripción
-- Aplicación web creada con Spring Boot. Contiene entidades como Universidad, Rector, Seccional y Teléfono y vistas Thymeleaf en `src/main/resources/templates`.
-- Incluye una clase de configuración para el envío de correos: `com.jdc.web2026i.Config.MailConfiguration`.
+## 📋 Acerca del Sistema
 
-## Estructura relevante
-- `src/main/java/com/jdc/web2026i` - código fuente Java.
-- `src/main/resources/templates` - plantillas Thymeleaf (.html).
-- `src/main/resources/static` - recursos estáticos (css, imágenes, txt).
-- `pom.xml` - configuración Maven.
+Este sistema web proporciona una solución completa para la gestión de instituciones de educación superior. Permite administrar información de universidades, recintos seccionales, rectores y datos de contacto de forma centralizada y eficiente.
 
-## Configuración del correo (SMTP)
-- Archivo: `MailConfiguration.java` (en `com.jdc.web2026i.Config`). Actualmente define un `JavaMailSender` con los valores de host, puerto, usuario y contraseña.
-- Llaves a completar en `MailConfiguration.java`:
-  - `mailSender.setUsername(...)` → correo remitente
-  - `mailSender.setPassword(...)` → contraseña o App Password
-- Recomendación: no dejar credenciales en el código. En lugar de eso, pásalas por `application.properties` o variables de entorno y modifica `MailConfiguration` para leerlas.
-
-Ejemplo de configuración recomendada (`application.properties`):
-
-```
-spring.mail.host=smtp.gmail.com
-spring.mail.port=587
-spring.mail.username=tu-correo@gmail.com
-spring.mail.password=tu-app-password
-spring.mail.properties.mail.smtp.auth=true
-spring.mail.properties.mail.smtp.starttls.enable=true
-```
-
-> Nota sobre Gmail: Google ya no permite "Less secure apps". Si usas Gmail habilita 2FA y crea una App Password para la aplicación, o usa un servicio SMTP compatible.
-
-## Cómo ejecutar
-1. Desde Windows PowerShell, en la raíz del proyecto:
-   `Set-Location 'C:\Users\Usuario\OneDrive\Documentos\NetBeansProjects\Web-2026-i'`
-2. Compilar y ejecutar con Maven wrapper:
-   `.\mvnw.cmd clean package`
-   `.\mvnw.cmd spring-boot:run`
-   O ejecutar el jar generado:
-   `java -jar target\\web-2026-i.jar`
-
-## Tests
-- Ejecutar: `.\mvnw.cmd test`
-
-## Buenas prácticas
-- No subir credenciales (usuario/contraseña) al repositorio. Usa variables de entorno, `application.properties` excluido del control de versiones o un gestor de secretos.
-- Añade un `.gitignore` que excluya `target/`, archivos de IDE y `application.properties` si contiene secretos.
-
-## Git: añadir, commitear y push
-- Comandos básicos (PowerShell):
-  ```powershell
-  Set-Location 'C:\Users\Usuario\OneDrive\Documentos\NetBeansProjects\Web-2026-i'
-  git add README.md
-  git commit -m "docs: add README.md"
-  git push
-  ```
-
-Si falla el push por autenticación:
-- Comprueba si el remoto usa HTTPS o SSH: `git remote -v`.
-- Para HTTPS en Windows recomienda activar el helper de credenciales: `git config --global credential.helper manager-core`.
-- Para SSH asegúrate de tener la clave y el agente: `Start-Service ssh-agent; ssh-add C:\\Users\\Usuario\\.ssh\\id_rsa`.
-- Si usas GitHub y 2FA, crea un Personal Access Token (PAT) y úsalo en lugar de la contraseña.
-
-## Contacto / Más cambios
-- Si quieres, puedo:
-  - Modificar `MailConfiguration` para leer propiedades desde `application.properties` y actualizar el README con pasos para crear el App Password.
-  - Añadir un `.gitignore` recomendado.
+La plataforma incluye funcionalidades de comunicación integradas, permitiendo envío automático de correos electrónicos para notificaciones y gestión de información institucional. Con una interfaz intuitiva y responsiva, facilita la interacción entre los diferentes usuarios del sistema.
 
 ---
-README generado por el asistente. Revisa y completa tus credenciales de forma segura antes de ejecutar el envío de correos.
+
+## 🛠️ Tecnologías Utilizadas
+
+**Backend & Framework:**
+- **Spring Boot 4.0.2** - Framework principal para desarrollo ágil de aplicaciones web
+- **Java 25** - Lenguaje de programación backend
+- **Spring Data JPA** - Abstracción y gestión de datos con persistencia
+- **Spring Security** - Autenticación y autorización de usuarios
+
+**Base de Datos:**
+- **PostgreSQL** - Sistema de gestión de bases de datos relacional
+
+**Frontend & Plantillas:**
+- **Thymeleaf** - Motor de plantillas para vistas dinámicas
+- **HTML**
+
+**Comunicaciones:**
+- **SMTP** - Protocolo para envío seguro de correos electrónicos
+
+**Herramientas & DevOps:**
+- **Maven** - Gestor de dependencias y compilación
+- **Spring Boot DevTools** - Herramientas para desarrollo ágil con recarga automática
+- **JUnit 5** - Framework de testing
+
+---
+
+## ✨ Características Principales
+
+✓ Gestión completa de universidades y seccionales  
+✓ Administración de datos de rectores  
+✓ Sistema de contactos y telefonía integrado  
+✓ Envío de correos automatizado mediante SMTP  
+✓ Autenticación y control de acceso seguro  
+✓ Interfaz web responsiva y moderna  
+✓ Suite de pruebas automatizadas  
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+src/main/
+  ├── java/com/jdc/
+  │   └── web2026i/          # Código fuente Java (controladores, servicios, entidades)
+  ├── resources/
+  │   ├── templates/          # Vistas HTML con Thymeleaf
+  │   ├── static/             # CSS, imágenes y otros recursos estáticos
+  │   └── application.properties # Configuración de la aplicación
+```
+
+---
+
+## 🚀 Inicio Rápido
+
+### Requisitos Previos
+- Java 25+
+- Maven (o usar el incluido: mvnw)
+- PostgreSQL configurado
+
+
+### Ejecutar Tests
+```bash
+.\mvnw.cmd test
+```
+
+---
+
+## 🔒 Seguridad
+
+- Las credenciales nunca deben incluirse en el repositorio
+- Utiliza variables de entorno para datos sensibles
+- Spring Security proporciona protección contra vulnerabilidades comunes
+- Se recomienda usar un gestor de secretos en producción
+
+---
+
+## 📝 Notas de Desarrollo
+
+- El proyecto utiliza Lombok para reducir código boilerplate
+- Spring Boot DevTools permite recarga automática durante desarrollo
+- Las pruebas unitarias están disponibles en `src/test/java`
+
+---
+
+**Sistema de Gestión Universitaria | 2026**
 
 
