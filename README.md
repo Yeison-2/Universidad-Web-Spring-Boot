@@ -1,9 +1,14 @@
-
 # 🎓 Sistema de Gestión Universitaria
+
+<img width="1347" height="627" alt="image" src="https://github.com/user-attachments/assets/37e9edd7-48e5-44d1-850b-835150c46f87" />
+
 
 Una plataforma integral para la administración y gestión de universidades, diseñada con las tecnologías más modernas de desarrollo web.
 
 ## 📋 Acerca del Sistema
+
+<img width="1280" height="625" alt="image" src="https://github.com/user-attachments/assets/55a52ad7-7a45-46bb-89b7-769bd5d40781" />
+
 
 Este sistema web proporciona una solución completa para la gestión de instituciones de educación superior. Permite administrar información de universidades, recintos seccionales, rectores y datos de contacto de forma centralizada y eficiente.
 
@@ -28,6 +33,8 @@ La plataforma incluye funcionalidades de comunicación integradas, permitiendo e
 
 **Comunicaciones:**
 - **SMTP** - Protocolo para envío seguro de correos electrónicos
+
+<img width="1250" height="756" alt="image" src="https://github.com/user-attachments/assets/245818a9-04bc-4962-bd56-c714d9330ed8" />
 
 **Herramientas & DevOps:**
 - **Maven** - Gestor de dependencias y compilación
